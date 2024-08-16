@@ -1,4 +1,4 @@
-# Code to analyse the classifier evaluation results obtained through classifier-eval.py
+# Code to analyse the classifier evaluation results obtained from classifier-eval.py (written to the results folder)
 #
 # Code by Sumayya Ziyad and Peter Christen - April 2024
 #

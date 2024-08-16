@@ -1,6 +1,6 @@
-# Code to plot ranking results of four classifiers on two data sets
+# Code to plot the classifier rankings for the two datasets (breast-cancer and german-credit)
 #
-# Code by Sumayya Ziyad and Peter Christen.
+# Code by Sumayya Ziyad and Peter Christen - July 2024
 #
 # Usage: python3 rank-plotter.py  [data_set]  [bw_color]
 #

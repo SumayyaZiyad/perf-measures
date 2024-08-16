@@ -1,7 +1,11 @@
 # Code to classify two datas sets using 4 different classifiers and to evaluate the classifier outcome based on
-# different performance measures.
+# different performance measures. This implementation has been adopted to two datasets:
+#       1. Breast cancer dataset - https://archive.ics.uci.edu/dataset/14/breast+cancer
+#       2. German credit dataset - https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data
 #
 # Code by Sumayya Ziyad and Peter Christen - April 2024
+#
+# Usage: python3 classifier-eval.py [path_to_breast_cancer_data] [path_to_german_credit_data]
 
 
 import pprint
@@ -10,6 +14,7 @@ import math
 import time
 import pandas as pd
 import numpy
+import sys
 
 from sklearn.model_selection import cross_val_predict
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
@@ -23,6 +28,9 @@ from sklearn.metrics import confusion_matrix
 
 today_str = time.strftime("%Y%m%d", time.localtime())
 numpy.random.seed(42)  # Ensure repeatability
+
+path_to_breast_cancer_data = sys.argv[1]
+path_to_german_credit_data = sys.argv[2]
 
 out_csv_name = 'classifier-results-%s.csv' % today_str
 
@@ -40,7 +48,7 @@ res_csv_list.append(res_csv_header_list)
 
 dataset_chars = {
     "breast_cancer": {
-        "url": "data/breast-cancer.data",
+        "url": path_to_breast_cancer_data,
         "categorical_features": ["age", "menopause", "tumor-size", "inv-node", "node-caps", "breast", "breast-quad",
                                  "irradiat"],
         "target_col": "class",
@@ -49,8 +57,8 @@ dataset_chars = {
                     "breast-quad", "irradiat"],
         "delimiter": ","
     },
-    "german-credit-data": {
-        "url": "data/german.data",
+    "german-credit": {
+        "url": path_to_german_credit_data,
         "categorical_features": ['A1', 'A3', 'A4', 'A6', 'A7', 'A9', 'A10', 'A12', 'A14', 'A15', 'A17', 'A19', 'A20'],
         "target_col": "class",
         "predicted_positive": [1],
@@ -60,7 +68,7 @@ dataset_chars = {
     }
 }
 
-must_add_headers = ["breast_cancer", "german-credit-data"]
+must_add_headers = ["breast_cancer", "german-credit"]
 
 for key, value in sorted(dataset_chars.items()):  # Sort to ensure consistency
     if key in must_add_headers:
