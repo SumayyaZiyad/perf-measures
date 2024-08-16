@@ -1,7 +1,7 @@
-# Program to execute different classifiers on 2 sample data sets
+# Code to classify two datas sets using 4 different classifiers and to evaluate the classifier outcome based on
+# different performance measures.
 #
-# Peter Christen and Sumayya Ziyad, April 2024
-# -----------------------------------------------------------------------------
+# Code by Sumayya Ziyad and Peter Christen - April 2024
 
 
 import pprint
@@ -40,7 +40,7 @@ res_csv_list.append(res_csv_header_list)
 
 dataset_chars = {
     "breast_cancer": {
-        "url": "../data/breast-cancer.data",
+        "url": "data/breast-cancer.data",
         "categorical_features": ["age", "menopause", "tumor-size", "inv-node", "node-caps", "breast", "breast-quad",
                                  "irradiat"],
         "target_col": "class",
@@ -50,7 +50,7 @@ dataset_chars = {
         "delimiter": ","
     },
     "german-credit-data": {
-        "url": "../data/german.data",
+        "url": "data/german.data",
         "categorical_features": ['A1', 'A3', 'A4', 'A6', 'A7', 'A9', 'A10', 'A12', 'A14', 'A15', 'A17', 'A19', 'A20'],
         "target_col": "class",
         "predicted_positive": [1],

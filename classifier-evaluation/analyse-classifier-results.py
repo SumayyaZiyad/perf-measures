@@ -1,8 +1,8 @@
-# Program to analyse the ranking of classifiers for different performance
-# measures
+# Code to analyse the classifier evaluation results obtained through classifier-eval.py
 #
-# Peter Christen and Sumayya Ziyad, April 2024
-# -----------------------------------------------------------------------------
+# Code by Sumayya Ziyad and Peter Christen - April 2024
+#
+# Usage: python3 analyse-classifier-results.py [path_to_results_file]
 
 import csv
 import sys
